@@ -31,17 +31,25 @@ public class Main {
 
         List<Library> libraries = Arrays.asList(library1, library2, library3);
 
-        Map<String, List<Novel>> libraryList = new HashMap<>();
-
-        //Can't use for loop at the same time (for novels and for art albums)
-        //Show the novels
+        Map<String, List<Novel>> libraryListWithNovels = new HashMap<>();
+//        Show the novels
         for(Library bookToSearch : libraries) {
-            libraryList.put(bookToSearch.getName(), bookToSearch.getNovels());
+            libraryListWithNovels.put(bookToSearch.getName(), bookToSearch.getNovels());
         }
 
-        //Show the art albums
-//        for(Book book : books) {
-//            booksList.put(book.getName(), book.getArtAlbums());
-//        }
+        Map<String, List<Album>> libraryListWithArtAlbums = new HashMap<>();
+//        Show the art albums
+        for(Library bookToSearch : libraries) {
+            libraryListWithArtAlbums.put(bookToSearch.getName(), bookToSearch.getArtAlbums());
+        }
+
+
+        library3.deleteNovel(n4);
+        library2.deleteArtAlbum(a3);
+        List<Library> libraries1 = Arrays.asList(library1, library2, library3);
+        Map<String, List<Novel>> libraryList1 = new HashMap<>();
+        for(Library bookToSearch : libraries) {
+            libraryList1.put(bookToSearch.getName(), bookToSearch.getNovels());
+        }
     }
 }
